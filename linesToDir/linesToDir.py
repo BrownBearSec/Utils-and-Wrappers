@@ -1,3 +1,4 @@
+#!/bin/python
 """
 Utility to take a list of words, and turn each line into a new directory.
 """
