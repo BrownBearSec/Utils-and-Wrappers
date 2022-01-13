@@ -12,6 +12,6 @@ with open(urlList, "r") as f:
     urls = f.readlines()
     for i in urls:
         if "FUZZ" in i:
-            ffuf = subprocess.Popen([f"ffuf -r -p 0.1 -s --mc 301,302,307 -u {i.strip()} -w /usr/share/seclists/Payloads/openRedirect.txt 2>/dev/null >> potentiallyVulnOpenRed.txt"], shell=True)
+            ffuf = subprocess.Popen([f"ffuf -r -p 0.1 -s --mc 301,302,307 -u '{i.strip()}' -w /usr/share/seclists/Payloads/openRedirect.txt 2>/dev/null >> potentiallyVulnOpenRed.txt"], shell=True)
             ffuf.wait()
         
