@@ -1,4 +1,5 @@
 chmod +x qsreplaceBetter
+
 sudo cp ./qsreplaceBetter /usr/bin/
 
 
