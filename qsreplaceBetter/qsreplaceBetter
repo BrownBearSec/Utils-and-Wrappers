@@ -1,1 +1,1 @@
-read url; echo $url | sed -E "s,(=http.*&|=http.*$),=$1,g" | sed "s,$1&,$1,g" | { read base; echo $url |  grep -E -o '(=http.*&|=http.*$)' | sed 's,=,,g; s,&.*,,g' | { read sub; echo "$url" | awk -F "$sub" '{ print $NF}' | { read end; echo "$base$end"; } } } 
+while IFS='$\n' read -r url; do echo $url | sed -E "s,(=http.*&|=http.*$),=$1\&,g" | sed "s,$1&,$1,g" | { read base; echo $url |  grep -E -o '(=http.*&|=http.*$)' | sed 's,=,,g; s,&.*,,g' | { read sub; echo "$url" | awk -F "$sub" '{ print $NF}' | { read end; echo "$base$end"; } } } done
